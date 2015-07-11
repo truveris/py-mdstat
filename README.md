@@ -96,7 +96,8 @@ You can also use the python interface to generate a nested dictionary:
         "devices": {
             "md0": {
                 "active": True,
-		[... snip ...]
+                [... snip ...]
+            }
         }
         "unused_devices": []
     }
