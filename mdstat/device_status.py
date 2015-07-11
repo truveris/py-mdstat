@@ -106,7 +106,7 @@ def parse_device_status(line, personality):
         raise ValueError("invalid device status line (missing blocks): {}"
                          .format(line))
 
-    if tokens[0] == "super":
+    if tokens and tokens[0] == "super":
         tokens.pop(0)
         super_ = tokens.pop(0)
     else:
@@ -127,7 +127,7 @@ def parse_device_status(line, personality):
 
     personality_status = globals().get("parse_device_status_{}"
                                        .format(personality))
-    if personality_status:
+    if tokens and personality_status:
         status.update(personality_status(tokens))
 
     return status
