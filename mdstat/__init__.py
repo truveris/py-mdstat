@@ -46,7 +46,7 @@ def parse_lines(lines):
 
 
 def parse_stream(fp):
-    return parse_lines([l.rstrip() for l in fp])
+    return parse_lines([l.rstrip("\r\n") for l in fp])
 
 
 def parse(path="/proc/mdstat"):
