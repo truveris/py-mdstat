@@ -1,11 +1,9 @@
 # Copyright 2015, Truveris Inc. All Rights Reserved.
 
 try:
-    from setuptools import setup, find_packages
+    from setuptools import setup
 except ImportError:
-    from ez_setup import use_setuptools
-    use_setuptools()
-    from setuptools import setup, find_packages
+    from distutils.core import setup
 
 
 setup(
@@ -14,12 +12,13 @@ setup(
     description="mdstat parser",
     author="Truveris Inc.",
     author_email="dev@truveris.com",
-    url="https://truveris.com/",
+    url="https://github.com/truveris/py-mdstat/",
     license="MIT License",
+    keywords=["linux", "mdstat", "mdadm", "mdjson","raid"],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: MIT License",
-        "Operating System :: Linux",
+        "Operating System :: POSIX :: Linux",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3.3",
         "Programming Language :: Python :: 3.4",
@@ -28,5 +27,5 @@ setup(
         "tools/mdjson",
     ],
     test_suite="nose.collector",
-    packages=find_packages(exclude=["ez_setup"]),
+    packages=["mdstat"],
 )
