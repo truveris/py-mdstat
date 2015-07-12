@@ -9,7 +9,7 @@ def group_lines(lines):
     group = []
 
     for line in lines:
-        if line == "":
+        if line.strip() == "":
             groups.append(group[:])
             group = []
             continue

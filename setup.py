@@ -8,7 +8,7 @@ except ImportError:
 
 setup(
     name="mdstat",
-    version="1.0.0",
+    version="1.0.1",
     description="mdstat parser",
     author="Truveris Inc.",
     author_email="dev@truveris.com",
