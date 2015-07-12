@@ -1,0 +1,7 @@
+1.0.1 (2015-07-12)
+==================
+ - Fix a bug when empty lines still contain the 6 spaces status prefix.
+
+1.0.0 (2015-07-11)
+==================
+Initial release.
