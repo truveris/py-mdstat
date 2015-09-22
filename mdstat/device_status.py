@@ -112,17 +112,9 @@ def parse_device_status(line, personality):
     else:
         super_ = None
 
-    sync_request = None
-    if tokens:
-        if tokens[-1] == "resync=DELAYED":
-            sync_request = "DELAYED"
-        elif tokens[-1] == "resync=PENDING":
-            sync_request = "PENDING"
-
     status = {
         "blocks": blocks,
         "super": super_,
-        "sync_request": sync_request,
     }
 
     personality_status = globals().get("parse_device_status_{}"

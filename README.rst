@@ -32,7 +32,6 @@ file remotely or need to run the parser on a stream, use ``parse_stream``.
                     "blocks": 34359475200,
                     "raid_disks": 4,
                     "offset_copies": 0,
-                    "sync_request": null,
                     "far_copies": 1,
                     "synced": [
                         true,

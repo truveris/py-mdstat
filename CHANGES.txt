@@ -1,3 +1,7 @@
+1.0.2 (2015-09-22)
+==================
+ - Fix PENDING/DELAYED resync parsing (reported by @carbn).
+
 1.0.1 (2015-07-12)
 ==================
  - Fix a bug when empty lines still contain the 6 spaces status prefix.

@@ -3,7 +3,7 @@
 from __future__ import absolute_import
 
 
-def parse_device_resync(line):
+def parse_device_resync_progress(line):
     tokens = line.split()[1:]
 
     operation = tokens.pop(0)
@@ -27,4 +27,15 @@ def parse_device_resync(line):
         "total": total,
         "finish": finish,
         "speed": speed,
+    }
+
+
+def parse_device_resync_standby(line):
+    return {
+        "operation": line.strip(),
+        "progress": "0%",
+        "resynced": 0,
+        "total": None,
+        "finish": None,
+        "speed": None,
     }

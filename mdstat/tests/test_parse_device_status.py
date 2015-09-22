@@ -61,17 +61,6 @@ class TestParseDeviceStatus(unittest.TestCase):
         expected = {
             "super": "1.2",
             "blocks": 34359475200,
-            "sync_request": None,
-        }
-        result = parse_device_status(line, None)
-        self.assertEquals(result, expected)
-
-    def test_device_status_sync_request(self):
-        line = "      34359475200 blocks super 1.2\tresync=PENDING"
-        expected = {
-            "super": "1.2",
-            "blocks": 34359475200,
-            "sync_request": "PENDING",
         }
         result = parse_device_status(line, None)
         self.assertEquals(result, expected)

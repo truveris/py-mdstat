@@ -5,7 +5,10 @@ from __future__ import absolute_import
 from .device_header import parse_device_header
 from .device_status import parse_device_status
 from .device_bitmap import parse_device_bitmap
-from .device_resync import parse_device_resync
+from .device_resync import (
+    parse_device_resync_progress,
+    parse_device_resync_standby,
+)
 
 
 def parse_device(lines):
@@ -27,7 +30,9 @@ def parse_device(lines):
         if line.startswith("      bitmap:"):
             bitmap = parse_device_bitmap(line)
         elif line.startswith("      ["):
-            resync = parse_device_resync(line)
+            resync = parse_device_resync_progress(line)
+        elif line.startswith("      \tresync="):
+            resync = parse_device_resync_standby(line)
         else:
             raise NotImplementedError("unknown device line: {}".format(line))
 
