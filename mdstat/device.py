@@ -26,7 +26,7 @@ def parse_device(lines):
     # merged with the header line, in those cases, the status line is returned
     # from parse_device_header(), the rest of the time, it's the next line.
     if not status_line:
-        lines.pop(0)
+        status_line = lines.pop(0)
 
     status = parse_device_status(status_line, device["personality"])
     bitmap = None
