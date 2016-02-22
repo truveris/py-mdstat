@@ -5,7 +5,7 @@ Follow these steps:
 - Update the release date and version in ``CHANGES.txt``
 - Commit, push
 - Create and push a new tag::
-    git tag -a vX.Y.Z -m 'Releasing vX.Y.Z'
+    git tag -a X.Y.Z -m 'Releasing vX.Y.Z'
     git push --tags
 - Download the release tarball from github (release section),
 - Sign it::
