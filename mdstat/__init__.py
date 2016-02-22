@@ -1,9 +1,12 @@
-# Copyright 2015, Truveris Inc. All Rights Reserved.
+# Copyright 2015-2016, Truveris Inc. All Rights Reserved.
 
 from __future__ import absolute_import
 
 from .device import parse_device
 from .utils import group_lines
+
+
+__version__ = "1.0.3"
 
 
 def parse_unused_devices(line):
