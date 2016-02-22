@@ -1,4 +1,4 @@
-# Copyright 2015, Truveris Inc. All Rights Reserved.
+# Copyright 2015-2016, Truveris Inc. All Rights Reserved.
 
 try:
     from setuptools import setup
@@ -8,7 +8,7 @@ except ImportError:
 
 setup(
     name="mdstat",
-    version="1.0.2",
+    version="1.0.3",
     description="mdstat parser",
     author="Truveris Inc.",
     author_email="dev@truveris.com",

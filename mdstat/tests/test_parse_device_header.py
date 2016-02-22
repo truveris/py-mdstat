@@ -1,4 +1,4 @@
-# Copyright 2015, Truveris Inc. All Rights Reserved.
+# Copyright 2015-2016, Truveris Inc. All Rights Reserved.
 
 from __future__ import absolute_import
 
@@ -23,6 +23,7 @@ class TestParseDeviceHeader(unittest.TestCase):
         line = "md0 : active raid1 sdf1[1] sde1[0]"
         expected = (
             "md0",
+            None,
             {
                 "active": True,
                 "personality": "raid1",
@@ -43,6 +44,21 @@ class TestParseDeviceHeader(unittest.TestCase):
                         "replacement": False,
                     }
                 }
+            }
+        )
+        output = parse_device_header(line)
+        self.assertEquals(output, expected)
+
+    def test_no_disks(self):
+        line = "md1 : active raid5 super 1.2 level 5, 512k chunk, algorithm 2 [4/0] [____]"
+        expected = (
+            "md1",
+            "      0 blocks super 1.2 level 5, 512k chunk, algorithm 2 [4/0] [____]",
+            {
+                "active": True,
+                "personality": "raid5",
+                "read_only": False,
+                "disks": {}
             }
         )
         output = parse_device_header(line)

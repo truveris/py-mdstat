@@ -1,4 +1,4 @@
-# Copyright 2015, Truveris Inc. All Rights Reserved.
+# Copyright 2015-2016, Truveris Inc. All Rights Reserved.
 
 from __future__ import absolute_import
 
@@ -31,9 +31,18 @@ def parse_device_header(line):
     else:
         personality = None
 
-    return name, {
+    # If the list of disk is empty, the status line is merged with the header,
+    # return it so we can parse it as such.
+    if "[" not in tokens[0]:
+        status_line = "      0 blocks " + " ".join(tokens)
+        disks = {}
+    else:
+        status_line = None
+        disks = parse_device_disks(tokens)
+
+    return name, status_line, {
         "active": active,
         "read_only": read_only,
         "personality": personality,
-        "disks": parse_device_disks(tokens),
+        "disks": disks,
     }

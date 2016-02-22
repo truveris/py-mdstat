@@ -1,3 +1,7 @@
+1.0.3 (2016-02-22)
+==================
+ - Fix arrays with no disks (reported by Francois Billard).
+
 1.0.2 (2015-09-22)
 ==================
  - Fix PENDING/DELAYED resync parsing (reported by @carbn).

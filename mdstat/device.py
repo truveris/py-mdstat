@@ -1,4 +1,4 @@
-# Copyright 2015, Truveris Inc. All Rights Reserved.
+# Copyright 2015-2016, Truveris Inc. All Rights Reserved.
 
 from __future__ import absolute_import
 
@@ -20,9 +20,15 @@ def parse_device(lines):
     device (e.g. RAID1 vs RAID5, healthy vs recovery/resync).
 
     """
-    name, device = parse_device_header(lines.pop(0))
+    name, status_line, device = parse_device_header(lines.pop(0))
 
-    status = parse_device_status(lines.pop(0), device["personality"])
+    # There are edge cases when the device list is empty and the status line is
+    # merged with the header line, in those cases, the status line is returned
+    # from parse_device_header(), the rest of the time, it's the next line.
+    if not status_line:
+        lines.pop(0)
+
+    status = parse_device_status(status_line, device["personality"])
     bitmap = None
     resync = None
 
