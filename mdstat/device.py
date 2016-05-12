@@ -40,7 +40,7 @@ def parse_device(lines):
         elif line.startswith("      \tresync="):
             resync = parse_device_resync_standby(line)
         else:
-            raise NotImplementedError("unknown device line: {}".format(line))
+            raise NotImplementedError("unknown device line: {0}".format(line))
 
     device.update({
         "status": status,

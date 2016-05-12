@@ -9,7 +9,7 @@ def parse_device_resync_progress(line):
     operation = tokens.pop(0)
 
     if tokens.pop(0) != "=":
-        raise ValueError("invalid resync line (missing '='): {}"
+        raise ValueError("invalid resync line (missing '='): {0}"
                          .format(line))
 
     progress = tokens.pop(0)

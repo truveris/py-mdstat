@@ -11,7 +11,7 @@ __version__ = "1.0.3"
 
 def parse_unused_devices(line):
     if not line.startswith("unused devices: "):
-        raise ValueError("invalid unused device line: {}"
+        raise ValueError("invalid unused device line: {0}"
                          .format(line))
 
     names = line.split()[2:]
@@ -23,7 +23,7 @@ def parse_unused_devices(line):
 
 def parse_personalities(line):
     if not line.startswith("Personalities : "):
-        raise ValueError("invalid personalities line: {}"
+        raise ValueError("invalid personalities line: {0}"
                          .format(line))
 
     tokens = line.split()[2:]

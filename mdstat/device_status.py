@@ -96,14 +96,14 @@ def parse_device_status_raid10(tokens):
 
 def parse_device_status(line, personality):
     if not line.startswith("      "):
-        raise ValueError("invalid device status line (bad prefix): {}"
+        raise ValueError("invalid device status line (bad prefix): {0}"
                          .format(line))
 
     tokens = line.split()
     blocks = int(tokens.pop(0))
 
     if tokens.pop(0) != "blocks":
-        raise ValueError("invalid device status line (missing blocks): {}"
+        raise ValueError("invalid device status line (missing blocks): {0}"
                          .format(line))
 
     if tokens and tokens[0] == "super":
@@ -117,7 +117,7 @@ def parse_device_status(line, personality):
         "super": super_,
     }
 
-    personality_status = globals().get("parse_device_status_{}"
+    personality_status = globals().get("parse_device_status_{0}"
                                        .format(personality))
     if tokens and personality_status:
         status.update(personality_status(tokens))

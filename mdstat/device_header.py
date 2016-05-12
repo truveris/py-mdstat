@@ -11,11 +11,11 @@ def parse_device_header(line):
     name = tokens.pop(0)
 
     if not name.startswith("md"):
-        raise ValueError("invalid device header line: {}"
+        raise ValueError("invalid device header line: {0}"
                          .format(line))
 
     if tokens.pop(0) != ":":
-        raise ValueError("invalid device header format (missing ':'): {}"
+        raise ValueError("invalid device header format (missing ':'): {0}"
                          .format(line))
 
     active = (tokens.pop(0) == "active")
