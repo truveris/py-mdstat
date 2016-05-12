@@ -6,7 +6,7 @@ from .device import parse_device
 from .utils import group_lines
 
 
-__version__ = "1.0.3"
+__version__ = "1.0.4"
 
 
 def parse_unused_devices(line):

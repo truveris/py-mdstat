@@ -8,7 +8,7 @@ in a JSON format.
 Requirements
 ------------
  - Linux (or at least get mdstat files from a Linux machine)
- - Python 2.7+ (or 3.2+)
+ - Python 2.6+ (or 3.2+)
 
 Example usage
 -------------
