@@ -11,14 +11,14 @@ def parse_device_bitmap(line):
     total_pages = int(page_counts[1])
 
     if tokens.pop(0) != "pages":
-        raise ValueError("invalid device bitmap syntax (pages): {}"
+        raise ValueError("invalid device bitmap syntax (pages): {0}"
                          .format(line))
 
     pages_size = tokens.pop(0)[1:-2]
     chunk_size = tokens.pop(0)
 
     if not tokens.pop(0).startswith("chunk"):
-        raise ValueError("invalid device bitmap syntax (chunk): {}"
+        raise ValueError("invalid device bitmap syntax (chunk): {0}"
                          .format(line))
 
     if tokens and tokens.pop(0) == "file:":
